@@ -5,7 +5,7 @@
     $delete = !empty($_POST['delete']);
 
     //Leggiamo e decodifichiamo il file json
-    $todo = file_get_contents(__DIR__.'/../todo.json');
+    $todo = file_get_contents(__DIR__.'/todo.json');
     $todo = json_decode($todo, true);
 
     //Aggiungiamo un nuovo item
@@ -34,7 +34,7 @@
     $todo = json_encode($todo);
     
     // Aggiunta del Todo al file json
-    file_put_contents(__DIR__.'/../todo.json',$todo);
+    file_put_contents(__DIR__.'/todo.json',$todo);
     
     // Risposta in formtato json
     header('Content-Type: application/json');
