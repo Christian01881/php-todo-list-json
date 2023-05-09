@@ -13,14 +13,14 @@
         <div class="container mt-5 d-flex flex-column align-items-center">
             <form class="input-group" @submit.prevent="Add">
                 <label for="addItem" class="input-group-text border-none fs-3">Aggiungi ToDo</label>
-                    <input type="text" name="addItem" id="addItem" class="form-control w-50 mt-4" v-model="newItem">
-                    <button class="mt-4 btn btn-success" type="submit">Aggiungi</button>
+                <input type="text" name="add" id="addItem" class="form-control w-50 mt-4" v-model="newItem">
+                <button class="mt-4 btn btn-success" type="submit">Aggiungi</button>
             </form>
            
         </div>
         <ul class="list-unstyled p-4" v-if="todo.length > 0">
-            <li v-for="(item,index) in todo" class="card p-3 border-primary m-1 flex-row align-items-center" :class="{'bg-success-subtle': item.check}">
-                <div class="col fw-bold fs-5 todo text-capitalize" :class="{'text-decoration-line-through': element.done}" @click="check(index)">{{ item.text }}</div>
+            <li v-for="(item,index) in todo" :key="index" class="card p-3 border-primary m-1 flex-row align-items-center" :class="{'bg-success-subtle': item.check}">
+                <div class="col fw-bold fs-5 todo text-capitalize" :class="{'text-decoration-line-through': item.check}" @click="check(index)">{{ item.text }}</div>
                 <i class="fa-solid fa-trash col-auto text-danger fs-4" @click="deleteTodo(index)"></i>
         </ul>
         <div v-else class="text-center mt-3 fs-4 bg-danger card p-3 fw-bold">La Lista è vuota</div>

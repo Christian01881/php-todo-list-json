@@ -1,7 +1,7 @@
 <?php 
     //prendiamo i parametri dal form dell'html tramite un metodo POST o GET
-    $add = !empty($_POST['addItem']);
-    $done = !empty($_POST['check']);
+    $add = !empty($_POST['newItem']);
+    $check = !empty($_POST['check']);
     $delete = !empty($_POST['delete']);
 
     //Leggiamo e decodifichiamo il file json

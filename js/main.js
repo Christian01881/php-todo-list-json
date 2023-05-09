@@ -13,7 +13,7 @@ createApp({
             const data = {
                 newItem: this.newItem,
             }
-            axios.post('php/index.php',data,{
+            axios.post('server.php',data,{
                 headers: {'Content-Type' : 'multipart/form-data'}
             })
             .then((response) => {
@@ -27,7 +27,7 @@ createApp({
             const data = {
                 check: index
             }
-            axios.post('php/index.php',data,{
+            axios.post('server.php',data,{
                 headers: {'Content-Type' : 'multipart/form-data'}
             })
             .then((response) => {
@@ -40,7 +40,7 @@ createApp({
             const data = {
                 delete: index
             }
-            axios.post("php/index.php", data, {
+            axios.post("server.php", data, {
                 headers: { "Content-Type": "multipart/form-data" },
               })
               .then((response) => {
@@ -50,9 +50,10 @@ createApp({
     },
     created() {
         // Chiamata originale all'API
-        axios.get('php/index.php')
+        axios.get('server.php')
         .then((response) => {
             this.todo = response.data;
         })
+        console.log(response.data);
     },
 }).mount('#app')
